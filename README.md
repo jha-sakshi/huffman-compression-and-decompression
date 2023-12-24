@@ -9,78 +9,23 @@ Theory
 
   The above following data will generate a binary tree starting from the characters having the lowest frequency, and construct till we use all the characters as follows:
 
-Pass 1:
-(A, 20) (C, 7) (D, 7) (B, 2) (F, 2) (G, 1)                      (A, 20) (C, 7) (D, 7) (**, 3)  (B, 2)   
-                                                   =>                                  /   \
-                                                                                      /     \
-                                                                                   (F, 2) (G, 1)
+![image](https://github.com/jha-sakshi/huffman-file-compression/assets/95759285/d06beef8-0c3e-463b-b818-c954a95d9cef)
 
-Pass 2:
-(A, 20) (C, 7) (D, 7) (**, 3)  (B, 2)                           (A, 20) (C, 7) (D, 7) (**, 5)
-                       /   \                                                           /   \
-                      /     \                                                         /     \
-                   (F, 2) (G, 1)                   =>                              (**, 3) (B, 2)
-                                                                                    /   \
-                                                                                   /     \
-                                                                                (F, 2) (G, 1)
 
-Pass 3:
-(A, 20) (C, 7) (D, 7) (**, 5)                                    (A, 20) (C, 7) (**, 12)
-                       /   \                                                     /   \
-                      /     \                                                   /     \
-                   (**, 3) (B, 2)                  =>                        (D, 7) (**, 5)
-                    /   \                                                            /   \
-                   /     \                                                          /     \
-                 (F, 2) (G, 1)                                                   (**, 3) (B, 2)
-                                                                                  /   \
-                                                                                 /     \
-                                                                              (F, 2) (G, 1)
+![image](https://github.com/jha-sakshi/huffman-file-compression/assets/95759285/68024a33-3ac8-4cd7-adb8-8a097acbbdb4)
+
+
+![image](https://github.com/jha-sakshi/huffman-file-compression/assets/95759285/0d00a3c6-21ed-4b93-a772-f26c99966111)
+
                                                                               
-Pass 4:
-(A, 20) (**, 12) (C, 7)                                           (A, 20) (**, 19)
-          /   \                                                             /   \
-         /     \                                                           /     \
-      (D, 7) (**, 5)                                                   (**, 12) (C, 7)
-              /   \                                                      /   \
-             /     \                               =>                   /     \
-          (**, 3) (B, 2)                                            (D, 7) (**, 5)
-           /   \                                                            /   \
-          /     \                                                          /     \
-       (F, 2) (G, 1)                                                    (**, 3) (B, 2)
-                                                                         /   \
-                                                                        /     \
-                                                                     (F, 2) (G, 1)
+![image](https://github.com/jha-sakshi/huffman-file-compression/assets/95759285/bb1f28ed-037d-4d75-a895-bd3877063e12)
+
                                                                      
-Pass 5 (Final), with huffman code:
+![image](https://github.com/jha-sakshi/huffman-file-compression/assets/95759285/fe740f55-cff9-4412-b551-683c77abeccf)
 
-Left Branch denoting 0 and right 1
-
-(A, 20) (**, 19)                                                         (**, 39)
-          /   \                                                           /   \
-         /     \                                                      (0)/     \(1)
-     (**, 12) (C, 7)                                          [0] <= (A, 20) (**, 19)
-       /   \                                                                 /   \
-      /     \                                                            (0)/     \(1)
-  (D, 7) (**, 5)                                    =>                  (**, 12) (C, 7) => [11]
-          /   \                                                          /   \
-         /     \                                                     (0)/     \(1)
-     (**, 3) (B, 2)                                        [100] <= (D, 7) (**, 5)
-      /   \                                                                 /   \
-     /     \                                                               /     \(1)
-  (F, 2) (G, 1)                                                        (**, 3) (B, 2) => [1011]
-                                                                        /   \
-                                                                    (0)/     \(1)
-                                                         [10100] <= (F, 2) (G, 1) => [10101]
                                                          
-Final Huffman Codes:
-character     frequency       Huffman Codes       Actual Binary
-    A             20                  0             01000001
-    B              2               1011             01000010
-    C              7                 11             01000011
-    D              7                100             01000100
-    F              2              10100             01000110
-    G              1              10101             01000111
-                  39                 75                 312
+![image](https://github.com/jha-sakshi/huffman-file-compression/assets/95759285/4d3b6755-f59e-47ba-a1a3-f3de1c4aec0a)
+
 
 Hence the resultant data is stored as binary written as '000101110110001001001010010100000010011111110000100100100000111010100011011000000', which has 75 bits plus 5 digits appended to
 round off the remaining bits while storing in the file.
