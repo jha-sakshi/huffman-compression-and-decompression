@@ -3,18 +3,13 @@ Theory
  Huffman compression is based on huffman coding technique. The huffman coding creates an optimal binary tree that is constructed based on frequency of an item/character in a file.
 
  Let's take an example of a file or string containing data like "AAABBCAAADDFFAAAADCCCDAADDDAAACGAAACACA"
+![image](https://github.com/jha-sakshi/huffman-file-compression/assets/95759285/844ea8db-4517-45ba-971f-1d7c110bb52f)
 
- character     frequency
-    A             20
-    B              2
-    C              7
-    D              7
-    F              2
-    G              1
+
 
   The above following data will generate a binary tree starting from the characters having the lowest frequency, and construct till we use all the characters as follows:
 
-  Pass 1:
+Pass 1:
 (A, 20) (C, 7) (D, 7) (B, 2) (F, 2) (G, 1)                      (A, 20) (C, 7) (D, 7) (**, 3)  (B, 2)   
                                                    =>                                  /   \
                                                                                       /     \
