@@ -85,7 +85,6 @@ character     frequency       Huffman Codes       Actual Binary
     D              7                100             01000100
     F              2              10100             01000110
     G              1              10101             01000111
-__________________________________________________________________
                   39                 75                 312
 
 Hence the resultant data is stored as binary written as '000101110110001001001010010100000010011111110000100100100000111010100011011000000', which has 75 bits plus 5 digits appended to
